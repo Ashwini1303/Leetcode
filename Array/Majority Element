@@ -1,0 +1,15 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+        HashMap<Integer,Integer> freq = new HashMap<>();
+        int maxFreq=0;
+        int majority=nums[0];
+        for (int num:nums) {
+            freq.put(num,freq.getOrDefault(num,0)+1);
+            if (freq.get(num)>maxFreq) {
+                maxFreq=freq.get(num);
+                majority=num;
+            }
+        }
+        return majority;
+    }
+}
