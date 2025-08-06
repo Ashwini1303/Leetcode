@@ -1,0 +1,19 @@
+public class IntegerToRoman {
+    public static String intToRoman(int num) {
+        int[] integer = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        String[] roman_equal = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+        StringBuilder roman = new StringBuilder();
+        for (int i = 0; i < integer.length; i++) {
+            while (num >= integer[i]){
+                roman.append(roman_equal[i]);
+                num -= integer[i];
+            }
+        }
+        return roman.toString();
+    }
+    public static void main(String[] args) {
+        System.out.println("3999 -> " + intToRoman(3999)); 
+        System.out.println("4 -> " + intToRoman(4));     
+        System.out.println("1253 -> " + intToRoman(1253)); 
+    }
+}
