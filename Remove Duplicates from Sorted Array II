@@ -1,0 +1,35 @@
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        Map<Integer, Integer> freq = new HashMap<>(); 
+        int k = 0;
+        for (int i = 0; i < nums.length; i++) {
+            int value = nums[i];
+            freq.put(value, freq.getOrDefault(value, 0) + 1);
+            if (freq.get(value) <= 2) {
+                nums[k] = value;
+                k++;
+            }
+        }
+        return k;
+    }
+}
+
+
+/*
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int[] freq = new int[10];
+        int k=0;
+        for(int i=0;i<nums.length;i++){
+            int value = nums[i];
+            freq[value]++;
+            if(freq[value]<=2){
+                nums[k]=value;
+                k++;
+            }
+        }
+        return k;  
+    }
+}
+*/
+
